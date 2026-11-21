@@ -37,6 +37,7 @@ logo = Path(__file__).with_name("compass_logo.svg").read_bytes()
 logo_src = "data:image/svg+xml;base64," + b64encode(logo).decode("ascii")
 st.html("""
 <style>
+[data-testid="stHeader"],
 [data-testid="stToolbar"], [data-testid="stDecoration"], #MainMenu,
 [data-testid="stStatusWidget"] {
     display: none !important;
