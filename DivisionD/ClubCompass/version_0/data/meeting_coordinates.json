@@ -1,0 +1,38 @@
+{
+  "1300 New York Avenue NW, Washington, D.C., 20577": {
+    "latitude": 38.899900035395,
+    "longitude": -77.030364308172
+  },
+  "1419 V St NW, Washington, DC 20009": {
+    "latitude": 38.918168791306,
+    "longitude": -77.032878017548
+  },
+  "1526 New Hampshire Ave., NW.": {
+    "latitude": 38.910459071716,
+    "longitude": -77.042770316577
+  },
+  "1550 M Street NW, Washington, DC 20036": {
+    "latitude": 38.905593495189,
+    "longitude": -77.035570485578
+  },
+  "1818 H Street, N.W., Washington, DC 20433, USA": {
+    "latitude": 38.900155084408,
+    "longitude": -77.042048786835
+  },
+  "1900 Pennsylvania Ave NW, Washington, DC 20431": {
+    "latitude": 38.900173427522,
+    "longitude": -77.043559459156
+  },
+  "2121 Pennsylvania Ave NW, Washington, DC 20433": {
+    "latitude": 38.90154035688,
+    "longitude": -77.047107863064
+  },
+  "2201 G St NW, Washington, DC 20052": {
+    "latitude": 38.898385325432,
+    "longitude": -77.048911845601
+  },
+  "901 G St NW, Washington, DC 20001": {
+    "latitude": 38.898448664298,
+    "longitude": -77.024069072249
+  }
+}
