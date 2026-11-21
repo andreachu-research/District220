@@ -35,51 +35,62 @@ def display_format(row):
 st.set_page_config(page_title="Division D Club Compass", layout="wide")
 logo = Path(__file__).with_name("compass_logo.svg").read_bytes()
 logo_src = "data:image/svg+xml;base64," + b64encode(logo).decode("ascii")
-st.html("""
-<style>
-[data-testid="stHeader"],
-[data-testid="stToolbar"], [data-testid="stDecoration"], #MainMenu,
-[data-testid="stStatusWidget"] {
-    display: none !important;
-}
-[data-testid="stAppViewContainer"], [data-testid="stHeader"] {
-    background-color: #edf4f6;
-}
-.st-key-compass-filters {
-    background-color: #fff;
-    border-radius: 14px;
-}
-.compass-hero {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem; padding: .8rem clamp(1rem, 3vw, 2rem); border-radius: 16px;
-    background: linear-gradient(120deg, #082b3a, #00506a); color: #fff;
-    margin-bottom: .65rem;
-}
-.compass-hero h1 {
-    color: #fff; padding: 0; margin: .2rem 0 .35rem;
-    font-size: clamp(1.65rem, 3vw, 2.6rem); line-height: 1.08;
-}
-.compass-hero p { color: #d8edf2; margin: 0; font-size: 1.05rem; }
-.compass-kicker { color: #f5d782; letter-spacing: .15em; font-size: .75rem; font-weight: 700; }
-.compass-hero .compass-logo {
-    width: clamp(74px, 10vw, 116px); height: auto; flex-shrink: 0;
-    filter: drop-shadow(0 10px 16px #031d2b80);
-}
-@media (max-width: 560px) {
-    .compass-hero { gap: .65rem; }
-    .compass-hero .compass-logo { width: clamp(54px, 13vw, 74px); }
-    .compass-hero h1 { font-size: clamp(1.35rem, 6vw, 2rem); overflow-wrap: anywhere; }
-}
-</style>
-<header class="compass-hero">
-    <div>
-        <div class="compass-kicker">DISTRICT 220 · DIVISION D</div>
-        <h1>Division D Club Compass</h1>
-        <p>Find a Toastmasters club that fits your schedule</p>
-    </div>
-    <img class="compass-logo" src="COMPASS_LOGO_SRC" alt="" width="180" height="180">
-</header>
-""".replace("COMPASS_LOGO_SRC", logo_src))
+with st.container(key="compass-banner"):
+    st.html("""
+    <style>
+    [data-testid="stHeader"],
+    [data-testid="stToolbar"], [data-testid="stDecoration"], #MainMenu,
+    [data-testid="stStatusWidget"] {
+        display: none !important;
+    }
+    [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
+        background-color: #edf4f6;
+    }
+    [data-testid="stMainBlockContainer"] {
+        padding-top: 1rem;
+    }
+    .st-key-compass-banner {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: #edf4f6;
+        padding: .4rem 0;
+    }
+    .st-key-compass-filters {
+        background-color: #fff;
+        border-radius: 14px;
+    }
+    .compass-hero {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 1rem; padding: .8rem clamp(1rem, 3vw, 2rem); border-radius: 16px;
+        background: linear-gradient(120deg, #082b3a, #00506a); color: #fff;
+        margin-bottom: .65rem;
+    }
+    .compass-hero h1 {
+        color: #fff; padding: 0; margin: .2rem 0 .35rem;
+        font-size: clamp(1.65rem, 3vw, 2.6rem); line-height: 1.08;
+    }
+    .compass-hero p { color: #d8edf2; margin: 0; font-size: 1.05rem; }
+    .compass-kicker { color: #f5d782; letter-spacing: .15em; font-size: .75rem; font-weight: 700; }
+    .compass-hero .compass-logo {
+        width: clamp(74px, 10vw, 116px); height: auto; flex-shrink: 0;
+        filter: drop-shadow(0 10px 16px #031d2b80);
+    }
+    @media (max-width: 560px) {
+        .compass-hero { gap: .65rem; }
+        .compass-hero .compass-logo { width: clamp(54px, 13vw, 74px); }
+        .compass-hero h1 { font-size: clamp(1.35rem, 6vw, 2rem); overflow-wrap: anywhere; }
+    }
+    </style>
+    <header class="compass-hero">
+        <div>
+            <div class="compass-kicker">DISTRICT 220 · DIVISION D</div>
+            <h1>Division D Club Compass</h1>
+            <p>Find a Toastmasters club that fits your schedule</p>
+        </div>
+        <img class="compass-logo" src="COMPASS_LOGO_SRC" alt="" width="180" height="180">
+    </header>
+    """.replace("COMPASS_LOGO_SRC", logo_src))
 if not MEETINGS_CSV.exists():
     st.info("Generate the meetings CSV first: python3 meeting_events.py --month 2026-11 --export")
     st.stop()
